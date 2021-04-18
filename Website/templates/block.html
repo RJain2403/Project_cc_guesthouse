@@ -1,0 +1,17 @@
+
+{% extends 'base.html' %}
+{% block title %}Block Room{% endblock %}
+
+{% block content %}
+	<br>
+	<div class="ui centered container">
+		<h2>Block/Unblock Room</h2>
+		<br>
+		{% for room in rooms %}
+			<button class="ui {% if room.active %}green{% else %}red{% endif %} button" onclick="load('/block?rid={{room.id}}')">{{room.name}}</button>
+		{% empty %}
+			<br><div class="ui container"><div class="ui negative message"><div class="header">No rooms present.</div></div></div>
+		{% endfor %}
+
+	</div>
+{% endblock %}
